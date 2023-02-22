@@ -74,3 +74,12 @@ footer {
   position: relative;
   min-height: 100vh;
 }
+.to-level{
+  background-color:cornflowerblue;
+  color: white;
+  text-align: center;
+}
+.leaderboard-header{
+  font-family: 'Times New Roman', Times, serif;
+  text-align: center;
+}
