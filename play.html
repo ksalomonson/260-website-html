@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- This is a placeholder for when you start using CSS -->
     <link rel="stylesheet" href="index.css" />
+    <script src="play.js"></script>
     <title>Quests</title>
     <!-- Include bootstrap CSS framework -->
     <link
@@ -15,13 +16,13 @@
       crossorigin="anonymous"
     />
   </head>
-  <body class="index_body">
+  <body class="index_body" onload="loadPage();">
     <div class="page-container">
     <div class="content-wrap">
     <header>
-      <h1 class="title-landing">Welcome Back to RPG Planner <br>
-        Current Quests
-      </h1>
+      <h1 class="title-landing">Welcome Back</h1>
+      <h1 class="player-name"></h1>
+      <h1 class="title-landing">Current Quests</h1>
     </header>
     <main>
       <ul class="list-group">
