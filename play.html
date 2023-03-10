@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- This is a placeholder for when you start using CSS -->
     <link rel="stylesheet" href="index.css" />
-    <script src="play.js"></script>
     <title>Quests</title>
     <!-- Include bootstrap CSS framework -->
     <link
@@ -21,30 +20,21 @@
     <div class="content-wrap">
     <header>
       <h1 class="title-landing">Welcome Back</h1>
-      <h1 class="player-name"></h1>
       <h1 class="title-landing">Current Quests</h1>
     </header>
     <main>
-      <ul class="list-group">
-        <li class="list-group-item list-group-item-secondary">
-          <button class="btn btn-primary">Complete</button>
-          Get groceries</li>
-          <li class="list-group-item list-group-item-secondary">
-            <button class="btn btn-primary">Complete</button>
-            Email boss</li>
-            <li class="list-group-item list-group-item-secondary">
-              <button class="btn btn-primary">Complete</button>
-              Do other chores</li>
-              <li class="list-group-item list-group-item-secondary">
-                <button class="btn btn-primary">Complete</button>
-                Think of other items to put in todo list</li>
-                <li class="list-group-item list-group-item-secondary">
-                  <button class="btn btn-primary">Complete</button>
-                  feed dog</li>
-        <button class="btn btn-primary">Add Quest</button>
+      <ul id="myUL">
+        <li>Hit the gym</li>
+        <li class="checked">Pay bills</li>
+        <li>Meet George</li>
+        <li>Buy eggs</li>
+        <li>Read a book</li>
+        <li>Organize office</li>
       </ul>
-      <div class="to-level">365 to next level!</div>
-      <div class="to-level">Current Level 5</div>
+      <input type="text" id="myInput" placeholder="Title...">
+      <span onclick="newElement()" class="addBtn">Add</span>
+      <div class="to-level">Current XP <span id="xpLevel"></span></div>
+      <div class="to-level">Current Level <span id="playerLevel"></span> </div>
     </main>
     <footer class="bg-black text-dark text-muted">
       <div class="container-fluid">
@@ -61,5 +51,7 @@
     </footer>
   </div>
   </div>
+  <script src="play.js"></script>
   </body>
+  
 </html>
