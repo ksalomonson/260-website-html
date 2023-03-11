@@ -21,21 +21,18 @@
     <header>
       <h1 class="leaderboard-header">Leader Board</h1>
     </header>
-    <main>
-        <ul class="list-group">
-            <li class="list-group-item d-flex justify-content-between align-items-center">
-              Juan adventurer
-              <span class="badge badge-primary badge-pill" style="color: black;">14 xp</span>
-            </li>
-            <li class="list-group-item d-flex justify-content-between align-items-center">
-              Steve wolf
-              <span class="badge badge-primary badge-pill" style="color: black;">23434 xp</span>
-            </li>
-            <li class="list-group-item d-flex justify-content-between align-items-center">
-              Morbi leo risus
-              <span class="badge badge-primary badge-pill" style="color: black;">1 xp</span>
-            </li>
-          </ul>
+    <main class="container-fluid bg-secondary text-center">
+      <table class="table table-warning table-striped-columns">
+        <thead class="table-dark">
+          <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Expirience Points</th>
+            <th>Date</th>
+          </tr>
+        </thead>
+        <tbody id="scores"></tbody>
+      </table>
     </main>
     <footer class="bg-black text-dark text-muted">
       <div class="container-fluid">
@@ -52,5 +49,6 @@
     </footer>
   </div>
   </div>
+  <script src="leaderboard.js"></script>
   </body>
 </html>
