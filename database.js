@@ -13,8 +13,8 @@ if (!userName) {
 const url = `mongodb+srv://${userName}:${password}@${hostname}`;
 
 const client = new MongoClient(url);
-const userCollection = client.db('rpg').collection('user');
-const scoreCollection = client.db('rpg').collection('score');
+const userCollection = client.db('simon').collection('user');
+const scoreCollection = client.db('simon').collection('score');
 
 function getUser(email) {
   return userCollection.findOne({ email: email });
@@ -24,7 +24,7 @@ function getUserByToken(token) {
   return userCollection.findOne({ token: token });
 }
 
-async function createUser(email, password, score, level) {
+async function createUser(email, password) {
   // Hash the password before we insert it into the database
   const passwordHash = await bcrypt.hash(password, 10);
 
@@ -32,16 +32,14 @@ async function createUser(email, password, score, level) {
     email: email,
     password: passwordHash,
     token: uuid.v4(),
-    score: score,
-    level: level
   };
   await userCollection.insertOne(user);
 
   return user;
 }
 
-function addScore(scores) {
-  scoreCollection.insertOne(scores);
+function addScore(score) {
+  scoreCollection.insertOne(score);
 }
 
 function getHighScores() {

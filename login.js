@@ -2,44 +2,35 @@
   let authenticated = false;
   const userName = localStorage.getItem('userName');
   if (userName) {
-    const nameEl = document.querySelector('#userName');
+    const nameEl = document.querySelector('#name');
     nameEl.value = userName;
     const user = await getUser(nameEl.value);
     authenticated = user?.authenticated;
   }
 
   if (authenticated) {
-    document.querySelector('#playerName').textContent = userName;
-    setDisplay('loginControls', 'none');
-    setDisplay('playControls', 'block');
+    //window.location = 'https://startup.lostindev.click/play.html';
   } else {
-    setDisplay('loginControls', 'block');
-    setDisplay('playControls', 'none');
+    //window.location = 'https://startup.lostindev.click/play.html';
   }
 })();
 
 async function loginUser() {
   loginOrCreate(`/api/auth/login`);
-  user = getUser(localStorage.getItem('userLevel'));
-  var parsedData = JSON.parse(user);
-  localStorage.setItem("userLevel", parsedData.level);
-  localStorage.setItem("expierencePoints", parsedData.score)
 }
 
 async function createUser() {
   loginOrCreate(`/api/auth/create`);
-  localStorage.setItem("expierencePoints", 0);
   localStorage.setItem("userLevel", 1);
+  localStorage.setItem("expierencePoints", 0);
 }
 
 async function loginOrCreate(endpoint) {
   const userName = document.querySelector('#name')?.value;
   const password = document.querySelector('#pass')?.value;
-  const score = localStorage.getItem('expierencePoints');
-  const level = localStorage.getItem('userLevel');
   const response = await fetch(endpoint, {
     method: 'post',
-    body: JSON.stringify({ email: userName, password: password, score: score, level: level}),
+    body: JSON.stringify({ email: userName, password: password }),
     headers: {
       'Content-type': 'application/json; charset=UTF-8',
     },
